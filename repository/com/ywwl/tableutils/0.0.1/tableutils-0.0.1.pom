@@ -6,24 +6,25 @@
     <groupId>com.ywwl</groupId>
     <artifactId>tableutils</artifactId>
     <version>0.0.1</version>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
     <name>tableutils</name>
     <packaging>jar</packaging>
     <properties>
         <java.version>1.8</java.version>
     </properties>
-
+    
+	<distributionManagement>
+	    <repository>
+	      <id>tableutils</id>
+	      <url>file://${project.build.directory}/repository/</url>
+	    </repository>
+	</distributionManagement>
+    
+    <repositories>
+        <repository>
+            <id>basecom</id>
+            <url>https://raw.githubusercontent.com/tronrich/basecom/master/repository</url>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>com.ywwl</groupId>
@@ -46,11 +47,17 @@
             <version>5.1.41</version>
         </dependency>
     </dependencies>
-    <repositories>
-
-        <repository>
-            <id>basecom</id>
-            <url>https://raw.githubusercontent.com/tronrich/basecom/master/repository</url>
-        </repository>
-    </repositories>
-</project>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+					<skipTests>true</skipTests>                    
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+ </project>
